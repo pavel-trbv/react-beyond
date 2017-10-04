@@ -21,7 +21,7 @@ Firstly, install the dependencies, in the root directory of the project, run ```
 ## Usage
 For **Development** run ```npm run dev```
 
-This will run development server on ```localhost:3000```, and run API server on ```localhost:3001```.
+This will run development server on ```localhost:3000```, and run API server on ```localhost:3001```.\n
 Development server includes Hot Reload for React and Redux, but not includes SSR.
 
 For **Production** run ```npm run build && npm start```
