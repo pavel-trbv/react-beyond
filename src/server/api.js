@@ -32,8 +32,4 @@ app.all(url('/users'),
     }
 }));
 
-app.post('/posts', (req, res) => {
-  res.json(req.body);
-})
-
 module.exports = app;
