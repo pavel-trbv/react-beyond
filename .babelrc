@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "react", "stage-2", "stage-0", ["env", {
+      "targets": {
+        "node": "8.4.0"
+      }
+    }]
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "system-import-transformer",
+    ["module-resolver", {
+      "root": ["./src/shared"]
+    }]
+  ]
+}
