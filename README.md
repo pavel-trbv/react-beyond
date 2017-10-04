@@ -31,3 +31,4 @@ Production server includes SSR, but not includes Hot Reload.
 
 ## Notes
 You should install ```nodemon```, run ```npm install -g nodemon```.
+Also you should run ```npm install -g webpack```.
