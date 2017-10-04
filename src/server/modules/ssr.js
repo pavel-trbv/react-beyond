@@ -11,7 +11,7 @@ const renderApp = (res, url, store) => {
 
   const html = renderToString(
     <Html
-      title='SPA'
+      title='React Beyond - counter example'
       url={url}
       context={context} 
       store={store} /> 
