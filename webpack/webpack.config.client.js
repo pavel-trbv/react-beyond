@@ -16,6 +16,15 @@ const extractSASS = new ExtractTextPlugin(path.join(root, src, 'shared', 'styles
 
 const PROD = process.env.NODE_ENV === 'production';
 
+const vendor = [
+  'react',
+  'react-dom',
+  'react-router',
+  'react-redux',
+  'redux',
+  'react-router-redux'
+];
+
 const babelQuery = {
   "presets": [
     "react",
@@ -49,7 +58,8 @@ module.exports = {
       'react-hot-loader/patch',
       'webpack-hot-middleware/client?noInfo=false',
       './src/client/client.js'
-    ]
+    ],
+    vendor
   },
   output: {
     filename: 'app.js',
@@ -63,6 +73,10 @@ module.exports = {
       children: true,
       async: true,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
+    }),    
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
       comments: false,
