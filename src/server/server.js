@@ -10,7 +10,7 @@ const { renderPage }= require('./modules/ssr');
 
 if (PROD) {
 
-  app.use('/static/', express.static(path.resolve(__dirname, path.join(process.cwd(), 'build'))))
+  app.use('/static/', express.static(path.resolve(__dirname, path.join(process.cwd(), 'public'))))
 
   app.use('/api', require('./modules/registerApi.js'))
 

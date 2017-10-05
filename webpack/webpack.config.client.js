@@ -5,7 +5,7 @@ const AssetsPlugin = require('assets-webpack-plugin');
 
 const root = process.cwd();
 const src  = path.join(root, 'src');
-const build = path.join(root, 'build');
+const build = path.join(root, 'public');
 
 const clientSrc    = path.join(src, 'client');
 const universalSrc = path.join(src, 'universal');
@@ -63,8 +63,8 @@ module.exports = {
     vendor
   },
   output: {
-    filename: 'app.js',
-    path: path.join(root, 'build'),
+    filename: 'bundle.js',
+    path: path.join(root, 'public'),
     publicPath: '/static/'
   },
   plugins: PROD ? [
@@ -91,7 +91,6 @@ module.exports = {
         unsafe      : true
       }
     }),
-    new AssetsPlugin({path: build, filename: 'assets.json'}),
     new webpack.DefinePlugin({
       __API__: JSON.stringify('http://localhost:3000')
     }),

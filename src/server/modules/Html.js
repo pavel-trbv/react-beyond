@@ -47,7 +47,7 @@ class Html extends Component {
 
           {PROD && <link rel="stylesheet" href="/static/bundle.css" type="text/css" />}
           {PROD && <script src="/static/vendor.js" />}
-          <script src="/static/app.js" defer></script>
+          <script src="/static/bundle.js" defer></script>
           {PROD && styleTags}
         </head>
         <body>
