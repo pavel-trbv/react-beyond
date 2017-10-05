@@ -46,19 +46,19 @@ const babelQuery = {
 module.exports = {
   devtool: 'eval',
   context: root,
-  entry: {
-    app: PROD ? [
-      //Production
+  entry: PROD ? {
+    app: [
       'babel-polyfill/dist/polyfill.js',
       './src/client/client.js'
-    ] : [
-      //Development
+    ],
+    vendor
+  } : {
+    app: [
       'babel-polyfill/dist/polyfill.js',
       'react-hot-loader/patch',
       'webpack-hot-middleware/client?noInfo=false',
       './src/client/client.js'
-    ],
-    vendor
+    ]
   },
   output: {
     filename: 'bundle.js',
