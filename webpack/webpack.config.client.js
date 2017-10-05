@@ -59,12 +59,28 @@ module.exports = {
   plugins: PROD ? [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}, comments: /(?:)/}),
+    new webpack.optimize.CommonsChunkPlugin({
+      children: true,
+      async: true,
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      comments: false,
+      compress: {
+        sequences     : true,
+        booleans      : true,
+        loops         : true,
+        unused      : true,
+        warnings    : false,
+        drop_console: true,
+        unsafe      : true
+      }
+    }),
     new AssetsPlugin({path: build, filename: 'assets.json'}),
     new webpack.DefinePlugin({
       __API__: JSON.stringify('http://localhost:3000')
     }),
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('bundle.css')
   ] : [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
