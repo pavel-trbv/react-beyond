@@ -45,13 +45,14 @@ class Html extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
           <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
 
-          {PROD && <link rel="stylesheet" href="/static/style.css" type="text/css" />}
+          {PROD && <link rel="stylesheet" href="/static/bundle.css" type="text/css" />}
+          {PROD && <script src="/static/vendor.js" />}
           <script src="/static/app.js" defer></script>
           {PROD && styleTags}
         </head>
         <body>
           <script dangerouslySetInnerHTML={{__html: initialState}} />
-          {PROD ? <div id="root" dangerouslySetInnerHTML={{__html: markup}}></div> : <div id="root"></div>}
+          {PROD ? <div id="root" dangerouslySetInnerHTML={{__html: markup}}></div> : <div id="root">Processing...</div>}
         </body>
       </html>
     );
