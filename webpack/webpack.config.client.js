@@ -12,8 +12,6 @@ const universalSrc = path.join(src, 'universal');
 
 const clientInclude = [clientSrc, universalSrc];
 
-const extractSASS = new ExtractTextPlugin(path.join(root, src, 'shared', 'styles', 'main.scss'));
-
 const PROD = process.env.NODE_ENV === 'production';
 
 const vendor = [
