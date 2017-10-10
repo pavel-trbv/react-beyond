@@ -14,13 +14,13 @@ import {
 
 import * as Reducers from '../reducers/index.js';
 
-export default (history, preloadedState = {}) => {
+export default (history) => {
   const middleware = routerMiddleware(history);
 
   const store = createStore(combineReducers({
     ...Reducers,
     router: routerReducer
-  }), preloadedState, applyMiddleware(middleware, logger));
+  }), applyMiddleware(middleware, logger));
 
 
   if (module.hot) {

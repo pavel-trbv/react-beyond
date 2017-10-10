@@ -4,8 +4,6 @@ import {renderToString} from 'react-dom/server';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import { Provider } from 'react-redux'
 
-import App from '../../shared/containers/App'
-
 class Html extends Component {
   render() {
 
@@ -22,19 +20,24 @@ class Html extends Component {
 
     const initialState = `window.__INITIAL_STATE__ = ${JSON.stringify(state)}`;
 
-    const sheet = new ServerStyleSheet();
+    let sheet;
+    let markup;
+    let styleTags;
 
-    const markup = PROD && renderToString(
-      <Provider store={store}>
-        <StyleSheetManager sheet={sheet.instance}>
-          <StaticRouter location={url} context={context}>
-            <App />  
-          </StaticRouter>
-        </StyleSheetManager>
-      </Provider>
-    );
-
-    const styleTags = sheet.getStyleElement();
+    if (PROD) {
+      const App = require('../../shared/containers/App').default;
+      sheet = new ServerStyleSheet();
+      markup = renderToString(
+        <Provider store={store}>
+          <StyleSheetManager sheet={sheet.instance}>
+            <StaticRouter location={url} context={context}>
+              <App />  
+            </StaticRouter>
+          </StyleSheetManager>
+        </Provider>
+      );
+      styleTags = sheet.getStyleElement();
+    }
 
     return (
       <html>

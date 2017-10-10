@@ -17,7 +17,7 @@ axios.defaults.baseURL = __API__;
 const preloadedState = window.__INITIAL_STATE__
 
 const history = createHistory();
-const store = createStore(history, preloadedState);
+const store = createStore(history);
 
 const rootEl = document.getElementById('root');
 const renderApp = (Component) => {

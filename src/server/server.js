@@ -25,5 +25,5 @@ if (PROD) {
 }
 
 app.listen(PORT, () => {
-  console.log(`\n==> Server started on http://localhost:${PORT}, open page on browser`);
+  console.log(`==> Server started on http://localhost:${PORT}, open page on browser`);
 });
