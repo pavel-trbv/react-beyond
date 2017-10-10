@@ -39,6 +39,14 @@ const serverConfig = {
             loader: 'css-loader/locals'
           }
         ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'css-loader/locals?sass-loader'
+          }
+        ]
       }
     ]
   }
