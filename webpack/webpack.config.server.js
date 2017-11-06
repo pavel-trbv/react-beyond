@@ -19,7 +19,7 @@ const serverConfig = {
     warnings: false
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.jsx', '.js'],
     modules: [
       path.resolve('./src/shared'),
       path.resolve('./node_modules')
@@ -28,7 +28,7 @@ const serverConfig = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /(node_modules)/
       },
