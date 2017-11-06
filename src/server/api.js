@@ -30,7 +30,6 @@ passport.use(new Strategy({
   },
   function(identifier, profile, done) {
     process.nextTick(function () {
-
       // To keep the example simple, the user's Steam profile is returned to
       // represent the logged-in user.  In a typical application, you would want
       // to associate the Steam account with a user record in your database,
