@@ -105,7 +105,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.jsx', '.js'],
     modules: [
       path.resolve('./src/shared'),
       path.resolve('./node_modules')
@@ -115,7 +115,7 @@ module.exports = {
     rules: [
       // Javascript
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loaders: 'babel-loader',
         query: babelQuery,
         //include: clientInclude
